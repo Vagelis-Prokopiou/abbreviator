@@ -1,9 +1,16 @@
 # abbreviator
+
 A Rust library for abbreviating long words.
 
-This abbreviation is the following: The first letter + the length of the word minus the first and the last letter + the last letter.
 
-Example:
+## Example usage
+```rust
 let threshold_length = 10;
-abbreviator.abbreviate("localization", threshold) == "l10n";
-abbreviator.abbreviate("internationalization", threshold) == "i18n";
+abbreviator.abbreviate("localization", threshold_length) == "l10n";
+abbreviator.abbreviate("internationalization", threshold_length) == "i18n";
+
+let threshold_length = 50;
+abbreviator.abbreviate("localization", threshold_length) == "localization";
+abbreviator.abbreviate("internationalization", threshold_length) == "internationalization";
+```
+
