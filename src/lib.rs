@@ -1,10 +1,11 @@
 pub fn abbreviate(word: &str, threshold_length: i32) -> String {
-    if word.len() < threshold_length as usize {
+    let word_length: usize = word.chars().count();
+    if word_length < threshold_length as usize {
         return word.to_string();
     }
 
     return get_first_letter(word)
-        + (word.chars().count() - 2).to_string().as_str()
+        + (word_length - 2).to_string().as_str()
         + get_last_letter(word).as_str();
 }
 
