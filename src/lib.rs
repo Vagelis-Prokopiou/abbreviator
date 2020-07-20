@@ -1,9 +1,8 @@
-pub fn abbreviate(word: &str, threshold_length: i32) -> String {
-    let word_length: usize = word.chars().count();
-    if word_length < threshold_length as usize {
+pub fn abbreviate(word: &str) -> String {
+    let word_length = word.chars().count();
+    if word_length < 3 {
         return word.to_string();
     }
-
     return get_first_letter(word)
         + (word_length - 2).to_string().as_str()
         + get_last_letter(word).as_str();
@@ -46,20 +45,14 @@ mod tests {
     }
 
     #[test]
-    fn test_abbreviate_should_get_initial_word() {
-        let threshold = 50;
-        assert_eq!(abbreviate("word", threshold), "word");
-        assert_eq!(abbreviate("localization", threshold), "localization");
-        assert_eq!(abbreviate("internationalization", threshold), "internationalization");
-        assert_eq!(abbreviate("pneumonoultramicroscopicsilicovolcanoconiosis", threshold), "pneumonoultramicroscopicsilicovolcanoconiosis");
-    }
-
-    #[test]
-    fn test_abbreviate_should_get_abbreviation() {
-        let threshold = 3;
-        assert_eq!(abbreviate("word", threshold), "w2d");
-        assert_eq!(abbreviate("localization", threshold), "l10n");
-        assert_eq!(abbreviate("internationalization", threshold), "i18n");
-        assert_eq!(abbreviate("pneumonoultramicroscopicsilicovolcanoconiosis", threshold), "p43s");
+    fn test_abbreviate() {
+        assert_eq!(abbreviate(""), "");
+        assert_eq!(abbreviate("a"), "a");
+        assert_eq!(abbreviate("ab"), "ab");
+        assert_eq!(abbreviate("abc"), "a1c");
+        assert_eq!(abbreviate("word"), "w2d");
+        assert_eq!(abbreviate("localization"), "l10n");
+        assert_eq!(abbreviate("internationalization"), "i18n");
+        assert_eq!(abbreviate("pneumonoultramicroscopicsilicovolcanoconiosis"), "p43s");
     }
 }
