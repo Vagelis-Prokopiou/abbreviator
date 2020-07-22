@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/Vagelis-Prokopiou/abbreviator/workflows/Rust/badge.svg)](https://github.com/Vagelis-Prokopiou/abbreviator/actions)
+
 # abbreviator
 
 A Rust library for abbreviating long words.
