@@ -48,6 +48,7 @@ mod tests {
 
     #[test]
     fn test_abbreviate() {
+        // English
         assert_eq!(abbreviate(""), "");
         assert_eq!(abbreviate("a"), "a");
         assert_eq!(abbreviate("ab"), "ab");
@@ -56,5 +57,12 @@ mod tests {
         assert_eq!(abbreviate("localization"), "l10n");
         assert_eq!(abbreviate("internationalization"), "i18n");
         assert_eq!(abbreviate("pneumonoultramicroscopicsilicovolcanoconiosis"), "p43s");
+
+        // Greek
+        assert_eq!(abbreviate("τι κάνεις"), "τ7ς");
+        assert_eq!(abbreviate("Καλημέρα αρχηγέ"), "Κ13έ");
+        assert_eq!(abbreviate("Άντε και στα δικά σου!"), "Ά20!");
+        assert_eq!(abbreviate("σκουλικομερμυγκότρυπα"), "σ19α");
+        assert_eq!(abbreviate("Άσπρη πέτρα ξέξασπρη κι απ' τον ήλιο ξεξασπρώτερη"), "Ά47η");
     }
 }
