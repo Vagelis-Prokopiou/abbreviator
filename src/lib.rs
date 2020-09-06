@@ -9,6 +9,10 @@ pub fn abbreviate(word: &str) -> String {
 }
 
 fn get_nth_letter(word: &str, index: u16) -> String {
+    if word.is_empty() {
+        return word.to_string();
+    }
+
     return word.chars().nth(index as usize).unwrap().to_string();
 }
 
@@ -29,10 +33,7 @@ mod tests {
         assert_eq!(get_first_letter("hello"), "h");
         assert_eq!(get_first_letter("HELLO"), "H");
         assert_eq!(get_first_letter("a"), "a");
-        // Todo:
-        // Even though this function will never be called with an empty string
-        // I have to fix this issue some time.
-        // assert_eq!(get_first_letter(""), "");
+        assert_eq!(get_first_letter(""), "");
     }
 
     #[test]
