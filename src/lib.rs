@@ -8,7 +8,7 @@ pub fn abbreviate(word: &str) -> String {
         + get_last_letter(word).as_str();
 }
 
-fn get_nth_letter(word: &str, index: u16) -> String {
+fn get_nth_letter(word: &str, index: i16) -> String {
     if word.is_empty() {
         return word.to_string();
     }
@@ -21,8 +21,8 @@ fn get_first_letter(word: &str) -> String {
 }
 
 fn get_last_letter(word: &str) -> String {
-    let index = word.chars().count().saturating_sub(1);
-    return get_nth_letter(word, index as u16);
+    let index = word.chars().count() as i16 - 1;
+    return get_nth_letter(word, index as i16);
 }
 
 #[cfg(test)]
