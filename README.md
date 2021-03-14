@@ -4,8 +4,14 @@
 
 A Rust library for abbreviating long words.
 
-
 ## Example usage
+
+Add the library to your dependencies
+```toml
+[dependencies]
+abbreviator = "0.1.4"
+```
+and then use it.
 ```rust
 use abbreviator::abbreviate;
 
