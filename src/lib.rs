@@ -17,12 +17,12 @@ fn get_nth_letter(word: &str, index: u16) -> String {
 }
 
 fn get_first_letter(word: &str) -> String {
-    return get_nth_letter(word, 0);
+    get_nth_letter(word, 0)
 }
 
 fn get_last_letter(word: &str) -> String {
     let index = word.chars().count().saturating_sub(1);
-    return get_nth_letter(word, index as u16);
+    get_nth_letter(word, index as u16)
 }
 
 #[cfg(test)]
