@@ -30,7 +30,7 @@ fn get_last_letter(word: &str) -> String {
 
 #[cfg(test)]
 mod tests {
-    use crate::{abbreviate, get_first_letter, get_last_letter};
+    use super::*;
 
     #[test]
     fn test_get_first_letter() {
