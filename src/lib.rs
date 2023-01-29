@@ -11,12 +11,12 @@ pub fn abbreviate(word: &str) -> String {
     )
 }
 
-fn get_nth_letter(word: &str, index: u16) -> String {
+fn get_nth_letter(word: &str, index: usize) -> String {
     if word.is_empty() {
         return word.to_string();
     }
 
-    return word.chars().nth(index as usize).unwrap().to_string();
+    return word.chars().nth(index).unwrap().to_string();
 }
 
 fn get_first_letter(word: &str) -> String {
@@ -25,7 +25,7 @@ fn get_first_letter(word: &str) -> String {
 
 fn get_last_letter(word: &str) -> String {
     let index = word.chars().count().saturating_sub(1);
-    get_nth_letter(word, index as u16)
+    get_nth_letter(word, index)
 }
 
 #[cfg(test)]
