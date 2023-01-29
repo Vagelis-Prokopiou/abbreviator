@@ -3,9 +3,12 @@ pub fn abbreviate(word: &str) -> String {
     if word_length < 3 {
         return word.to_string();
     }
-    return get_first_letter(word)
-        + (word_length - 2).to_string().as_str()
-        + get_last_letter(word).as_str();
+    format!(
+        "{}{}{}",
+        get_first_letter(word),
+        word_length - 2,
+        get_last_letter(word)
+    )
 }
 
 fn get_nth_letter(word: &str, index: u16) -> String {
