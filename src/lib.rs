@@ -61,8 +61,7 @@ mod tests {
     }
 
     #[test]
-    fn test_abbreviate() {
-        // English
+    fn test_abbreviate_english() {
         assert_eq!(abbreviate(""), "");
         assert_eq!(abbreviate("a"), "a");
         assert_eq!(abbreviate("ab"), "ab");
@@ -71,15 +70,19 @@ mod tests {
         assert_eq!(abbreviate("localization"), "l10n");
         assert_eq!(abbreviate("internationalization"), "i18n");
         assert_eq!(abbreviate("pneumonoultramicroscopicsilicovolcanoconiosis"), "p43s");
+    }
 
-        // Greek
+    #[test]
+    fn test_abbreviate_greek() {
         assert_eq!(abbreviate("τι κάνεις"), "τ7ς");
         assert_eq!(abbreviate("Καλημέρα αρχηγέ"), "Κ13έ");
         assert_eq!(abbreviate("Άντε και στα δικά σου!"), "Ά20!");
         assert_eq!(abbreviate("σκουλικομερμυγκότρυπα"), "σ19α");
         assert_eq!(abbreviate("Άσπρη πέτρα ξέξασπρη κι απ' τον ήλιο ξεξασπρώτερη"), "Ά47η");
+    }
 
-        // Misc
+    #[test]
+    fn test_abbreviate_grapheme_clusters() {
         // https://doc.rust-lang.org/book/ch08-02-strings.html#creating-a-new-string
         // https://unicode-rs.github.io/unicode-segmentation/unicode_segmentation/trait.UnicodeSegmentation.html#tymethod.grapheme_indices
         assert_eq!(abbreviate("عليكم"), "ع3م");
