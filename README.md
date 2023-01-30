@@ -9,7 +9,7 @@ A Rust library for abbreviating long words.
 Add the library to your dependencies
 ```toml
 [dependencies]
-abbreviator = "0.1.4"
+abbreviator = "0.1.6"
 ```
 and then use it.
 ```rust
