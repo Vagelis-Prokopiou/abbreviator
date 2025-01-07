@@ -1,7 +1,8 @@
 use unicode_segmentation::{Graphemes, UnicodeSegmentation};
 
-/// Abbreviates a word by keeping the first and last letters and replacing the middle
-/// with the count of removed letters. Words shorter than 3 letters are returned unchanged.
+/// Abbreviates a word by keeping the first and last letters
+/// and replacing the middle with the count of removed letters.
+/// Words shorter than 3 letters are returned unchanged.
 ///
 /// # Examples
 /// ```
