@@ -102,4 +102,32 @@ mod tests {
         assert_eq!(abbreviate("Hola"), "H2a");
         assert_eq!(abbreviate("a̐éö̲"), "a̐1ö̲");
     }
+
+    #[test]
+    fn test_abbreviate_with_spaces() {
+        assert_eq!(abbreviate("hello world"), "h9d");
+        assert_eq!(abbreviate(" space "), " 5 ");
+        assert_eq!(abbreviate("   "), " 1 ");
+    }
+
+    #[test]
+    fn test_abbreviate_with_special_characters() {
+        assert_eq!(abbreviate("hello!"), "h4!");
+        assert_eq!(abbreviate("@#$"), "@1$");
+        assert_eq!(abbreviate("!@#$%"), "!3%");
+    }
+
+    #[test]
+    fn test_abbreviate_with_numbers() {
+        assert_eq!(abbreviate("h3llo"), "h3o");
+        assert_eq!(abbreviate("1234567"), "156");
+        assert_eq!(abbreviate("y2k"), "y1k");
+    }
+
+    #[test]
+    fn test_abbreviate_mixed_scripts() {
+        assert_eq!(abbreviate("Hello世界"), "H4界");
+        assert_eq!(abbreviate("Café☕"), "C2☕");
+        assert_eq!(abbreviate("🌟star🌟"), "🌟3🌟");
+    }
 }
