@@ -120,7 +120,7 @@ mod tests {
     #[test]
     fn test_abbreviate_with_numbers() {
         assert_eq!(abbreviate("h3llo"), "h3o");
-        assert_eq!(abbreviate("1234567"), "156");
+        assert_eq!(abbreviate("1234567"), "157");
         assert_eq!(abbreviate("y2k"), "y1k");
     }
 
