@@ -6,6 +6,8 @@ use unicode_segmentation::{Graphemes, UnicodeSegmentation};
 ///
 /// # Examples
 /// ```
+/// use abbreviator::abbreviate;
+///
 /// assert_eq!(abbreviate("word"), "w2d");
 /// assert_eq!(abbreviate("internationalization"), "i18n");
 /// ```
@@ -126,8 +128,8 @@ mod tests {
 
     #[test]
     fn test_abbreviate_mixed_scripts() {
-        assert_eq!(abbreviate("Hello世界"), "H4界");
-        assert_eq!(abbreviate("Café☕"), "C2☕");
-        assert_eq!(abbreviate("🌟star🌟"), "🌟3🌟");
+        assert_eq!(abbreviate("Hello世界"), "H5界");
+        assert_eq!(abbreviate("Café☕"), "C3☕");
+        assert_eq!(abbreviate("🌟star🌟"), "🌟4🌟");
     }
 }
