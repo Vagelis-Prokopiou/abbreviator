@@ -9,6 +9,7 @@ use unicode_segmentation::{Graphemes, UnicodeSegmentation};
 /// use abbreviator::abbreviate;
 ///
 /// assert_eq!(abbreviate("word"), "w2d");
+/// assert_eq!(abbreviate("Café☕"), "C3☕");
 /// assert_eq!(abbreviate("internationalization"), "i18n");
 /// ```
 pub fn abbreviate(word: &str) -> String {
