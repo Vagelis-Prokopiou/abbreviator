@@ -1,16 +1,19 @@
 use unicode_segmentation::{Graphemes, UnicodeSegmentation};
 
+/// Abbreviates a word by keeping the first and last letters and replacing the middle
+/// with the count of removed letters. Words shorter than 3 letters are returned unchanged.
+///
+/// # Examples
+/// ```
+/// assert_eq!(abbreviate("word"), "w2d");
+/// assert_eq!(abbreviate("internationalization"), "i18n");
+/// ```
 pub fn abbreviate(word: &str) -> String {
     let word_length = graphemes_count(word);
     if word_length < 3 {
         return word.to_string();
     }
-    /*
-        At this point of the code the following unwraps should always
-        succeed because they can only return None if the word is empty.
 
-        If they fail they return the default empty string "".
-    */
     format!(
         "{}{}{}",
         get_first_letter(word).unwrap_or_default(),
